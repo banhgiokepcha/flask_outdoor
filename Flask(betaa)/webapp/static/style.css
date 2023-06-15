@@ -1,0 +1,114 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.container{
+    width: 100%;
+    height: 100vh;
+    background:url(../static/imgage/background.jpg);
+    background-position: center;
+    background-size: cover;
+    padding-left: 8%;
+    padding-right: 8%;
+    box-sizing: border-box;
+}
+.navbar{
+    height: 12%;
+    display: flex;
+    align-items: center;
+}
+.navbar .logo{
+    width: 50px;
+    cursor: pointer;
+    color: #fff;
+    font-size: 3rem;
+}
+nav{
+    flex: 1;
+    text-align: right;
+}
+nav ul li{
+    list-style: none;
+    display: inline-block;
+    margin-left: 70px;
+    padding-right: 20px;
+}
+nav ul li a{
+    text-decoration: none;
+    color:#fff;
+    font-size: 1.2rem;;
+    padding-right: 40px;
+}
+.row{
+    display: flex;
+    height: 88%;
+    align-items: center;
+}
+.col{
+    flex-basis: 50%;
+}
+h1{
+    color: #fff;
+    font-size: 100px;
+}
+p{
+    color: #fff;
+    font-size: 1rem;
+    line-height: 25px;
+    padding-top: 20px;
+}
+.card{
+   width: 250px;
+   height: 300px;
+   display: inline-block;
+   border-radius: 10px;
+   padding: 15px 25px;
+   box-sizing: border-box;
+   cursor: pointer;
+   margin: 10px 15px;
+   background-image: url(../static/bacgiang.jpg);
+   background-position: center;
+   background-size: cover; 
+}
+.card1{
+    background-image: url(../static/imgage/bacgiang1.jpg);
+}
+.card h5{
+    color: black;
+    font-size: 1.5rem;
+}
+.card1 h5{
+    color: black;
+    font-size: 1.5rem;
+}
+.card p{
+    font-size: 1.2rem;
+    color: black;
+}
+.card1 h5{
+    font-size: 1.2rem;
+    color: black;
+}
+
+.navbarwelcome{
+    height: 12%;
+    display: flex;
+    align-items: center;
+}
+.contain{
+    width: 100%;
+    height: 100vh;
+    background:url(../static/imgage/park\ .jpg);
+    background-position: center;
+    background-size: cover;
+    padding-left: 8%;
+    padding-right: 8%;
+    box-sizing: border-box;
+}
+.navbarwelcome .logo{
+    width: 50px;
+    cursor: pointer;
+    color: #fff;
+    font-size: 3rem;
+}

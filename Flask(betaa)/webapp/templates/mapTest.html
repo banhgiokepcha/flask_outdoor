@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+            <html>
+                <head>
+                    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                </head>
+                <body onload="getLocation()">
+                  {% for user in users %}
+                  <span>{{user.user_name}}</span>
+                  {% endfor %}
+                    <h1>Using an iframe</h1>
+                    <div id="map">{{ iframe|safe }}</span>
+
+                     <span><a>Add your own markers</a></span>
+                     <span>Search for places</span>
+                     <form action="/search" method="GET">
+                      <input type="search" name="query" placeholder="Find places by name"> 
+                     </form>
+                     
+                </body>
+               
+            </html> 
+
+
+

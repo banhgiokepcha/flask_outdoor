@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+      <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""></script>
+    <style>
+      #map { height: 400px; }
+  </style>
+    <title>User map</title>
+</head>
+<body onload="showPlaces()">
+
+  <div id="map"></div>
+  <script type="text/javascript">
+  
+    var mapDiv = document.getElementById('map');
+    //init a map
+    var map = L.map(mapDiv).setView([21.2820, 106.1975], 13);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
+    }).addTo(map);
+
+    // Create a form popup
+    var popup = L.popup();
+    function showPlaces() {
+      
+      $.get('/places', (places) => {
+        var placesData = JSON.parse(places)
+        for (let i = 0; i<placesData.length; i++) {
+           //console.log(placesData[i].id)
+           const name = placesData[i].name
+           const description = placesData[i].description 
+           console.log(name, description)
+           marker=L.marker([parseFloat(placesData[i].lat), parseFloat(placesData[i].lon)]).addTo(map)
+          .bindPopup(`${name}, ${description}`)
+
+        } 
+      }) 
+    }   
+    function showMarker(){
+      $.get('/search', { query: query }, function (place) {
+        results.forEach(function (place) {
+            var title = place.title;
+            var text = place.text;
+            var latitude = parseFloat(place.lat);
+            var longitude = parseFloat(place.lon);
+
+            const icon = L.icon({
+              iconUrl: 'https://maps.google.com/mapfiles/ms/icons/blue-dot.png',
+              iconSize: [25, 42]
+            })
+            const marker = L.marker([latitude, longitude])
+            marker.bindPopup(`<b>${title}</b>`)
+
+            marker.on('click', function() {
+              marker.setIcon(icon)
+              marker.openPopup()
+            })
+    })
+  })
+  }
+   $('#search-button').on('click', function () {
+    var query = $('input[name="query"]').val();
+    showMarker(); })
+    
+</script> 
+
+<span>Search for places</span>
+<form id="form-id">
+  <input type="search" name="query" placeholder="Find places by name">
+  <input type="button" value="Search" id="search-button">
+</form>
+
+
+<div class="dropdown">
+  <select id="selectRegion" onchange="SelectRegion()">
+  <div id="myDropdown" class="dropdown-content">
+    <option value="Bac Giang">Bac Giang City</option>
+    <option value="Ha Noi">Hanoi City</option>
+  </div>
+</div>
+
+    
+</body> 
+
+
+</html>

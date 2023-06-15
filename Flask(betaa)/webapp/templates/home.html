@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block navbar %}
+<div class="container">
+<div class="navbar">
+    <a href="#" class="logo">NAVGO</a>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="{{ url_for('main.login_with_google') }}">Login</a></li>
+        </ul>
+    </nav>
+</div>
+<div class="row">
+    <div class="col">
+        <h1> Bacgiang </h3>
+        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, nulla. Repellendus odit, facilis eius possimus iure blanditiis eos soluta enim repudiandae nam cumque, 
+            maxime cum omnis velit, 
+            maiores voluptatibus error!
+        </p>
+        
+    </div>
+    <div class="col">
+        <div class="card">
+            <h5>Park</h5>
+            <p>Beautiful places in bac giang</p>
+        </div>
+        <div class="card card1">
+            <h5>Nghia dia</h5>
+            <p>Beautiful places in bac giang</p>
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+{%endblock %}
+
+
+

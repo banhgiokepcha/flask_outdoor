@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block navbar %}
+
+{% endblock %}
+{% block content %}
+<div class="contain">
+<div class="navbarwelcome">
+    <a href="#" class="logo">NAVGO</a>
+    <nav>
+        <ul>
+            <li><a href = "{{  url_for('google.logout')  }}">Log Out</a></li>
+            <li><a href = "{{  url_for('web.getMap')  }}" >Map</a></li>
+            <li><a href = "{{  url_for('web.user_map', user_id=current_user.id)  }}" >My marker</a></li>
+        </ul>
+    </nav>
+</div>
+</div>
+
+{% endblock %}
+
+
+
+<p>Dang nhap duoc roi nha</p>
+<a href = "{{  url_for('google.logout')  }}">Log Out</a>
+<a href = "{{  url_for('web.getMap')  }}" >Bam Vao Con Di Nay</a>
+<a href = "{{  url_for('web.user_map', user_id=current_user.id)  }}" >Bam Vao Con Di Nay</a>
